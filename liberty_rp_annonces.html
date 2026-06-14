@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liberty RP - Annonces</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    min-height: 100vh;
+  }
+
+  .header {
+    background: #111;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #222;
+  }
+  .logo {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo span { font-size: 13px; font-weight: 700; color: #111; }
+  .header-title { font-size: 17px; font-weight: 600; color: #fff; }
+  .header-sub { font-size: 12px; color: #888; margin-top: 2px; }
+
+  .tabs {
+    display: flex;
+    background: #111;
+    border-bottom: 1px solid #222;
+  }
+  .tab {
+    flex: 1;
+    padding: 12px 8px;
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+    color: #888;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .tab.active { color: #fff; border-bottom-color: #fff; }
+  .tab:hover:not(.active) { color: #ccc; }
+
+  .content { padding: 1rem; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 10px;
+  }
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    gap: 8px;
+  }
+  .card-title { font-size: 14px; font-weight: 600; color: #fff; }
+  .card-desc { font-size: 13px; color: #aaa; line-height: 1.55; }
+  .card-date {
+    font-size: 11px;
+    color: #555;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge-event { background: #fff; color: #111; }
+  .badge-news { background: #1e3a5f; color: #7ab8f5; }
+  .badge-alert { background: #3a2a00; color: #f5c518; }
+
+  .empty {
+    text-align: center;
+    color: #555;
+    font-size: 13px;
+    padding: 2rem 0;
+  }
+
+  /* Icônes SVG inline simples */
+  .icon { display: inline-block; vertical-align: middle; margin-right: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo"><span>LR</span></div>
+  <div>
+    <div class="header-title">Liberty RP</div>
+    <div class="header-sub">Panneau officiel du serveur</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="switchTab('events')">📅 Événements</div>
+  <div class="tab" onclick="switchTab('news')">🆕 Nouveautés</div>
+  <div class="tab" onclick="switchTab('alerts')">🔔 Alertes</div>
+</div>
+
+<div class="content">
+
+  <!-- ===================== ÉVÉNEMENTS ===================== -->
+  <!-- Pour ajouter un événement, copie un bloc .card et modifie le contenu -->
+  <div id="events" class="section active">
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Course de voitures</div>
+        <span class="badge badge-event">Événement</span>
+      </div>
+      <div class="card-desc">Grand prix organisé sur le circuit de la ville. Inscriptions ouvertes ! Récompenses pour les 3 premiers.</div>
+      <div class="card-date">🕐 Samedi 21 juin à 20h00</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Braquage de banque organisé</div>
+        <span class="badge badge-event">Événement</span>
+      </div>
+      <div class="card-desc">Événement RP encadré par les admins. Équipes de 4 joueurs max. Contactez un admin pour vous inscrire.</div>
+      <div class="card-date">🕐 Dimanche 22 juin à 21h00</div>
+    </div>
+
+    <!-- Ajouter d'autres événements ici -->
+
+  </div>
+
+  <!-- ===================== NOUVEAUTÉS ===================== -->
+  <div id="news" class="section">
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Nouveau quartier ajouté</div>
+        <span class="badge badge-news">Nouveauté</span>
+      </div>
+      <div class="card-desc">Le quartier industriel est désormais accessible. Nouveaux emplois et activités illicites disponibles.</div>
+      <div class="card-date">🕐 12 juin 2026</div>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Mise à jour du téléphone</div>
+        <span class="badge badge-news">Nouveauté</span>
+      </div>
+      <div class="card-desc">Le téléphone a été mis à jour avec de nouvelles fonctionnalités. Profitez de l'app caméra améliorée !</div>
+      <div class="card-date">🕐 10 juin 2026</div>
+    </div>
+
+    <!-- Ajouter d'autres nouveautés ici -->
+
+  </div>
+
+  <!-- ===================== ALERTES ===================== -->
+  <div id="alerts" class="section">
+
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title">Maintenance prévue</div>
+        <span class="badge badge-alert">⚠️ Alerte</span>
+      </div>
+      <div class="card-desc">Le serveur sera en maintenance le 20 juin de 02h à 04h du matin. Sauvegardez votre progression.</div>
+      <div class="card-date">🕐 20 juin 2026</div>
+    </div>
+
+    <!-- Ajouter d'autres alertes ici -->
+
+  </div>
+
+</div>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach(function(t, i) {
+    t.classList.toggle('active', ['events','news','alerts'][i] === tab);
+  });
+  document.querySelectorAll('.section').forEach(function(s) {
+    s.classList.toggle('active', s.id === tab);
+  });
+}
+</script>
+
+</body>
+</html>
